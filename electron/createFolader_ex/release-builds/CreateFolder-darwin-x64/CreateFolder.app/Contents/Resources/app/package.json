@@ -1,0 +1,25 @@
+{
+  "name": "CreateFolder",
+  "version": "1.0.0",
+  "description": "CreateFolder",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "package-mac": "electron-packager . --overwrite --platform=darwin --arch=x64 --icon=resources/installer/Icon.icns --no-prune --out=release-builds",
+    "package-win": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=win32 --arch=ia32 --icon=assets/icons/win/icon.ico --prune=true --out=release-builds --version-string.CompanyName=CE --version-string.FileDescription=CE --version-string.ProductName=\"Electron Tutorial App\"",
+    "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds"
+  },
+  "author": "kkyada",
+  "license": "1.0",
+  "devDependencies": {
+    "electron": "~1.7.8",
+    "electron-builder": "^19.45.4",
+    "electron-packager": "^9.1.0",
+    "exec-limiter": "^3.2.9",
+    "xlsx": "^0.11.8"
+  },
+  "dependencies": {
+    "exec-limiter": "^3.2.9",
+    "xlsx": "^0.11.8"
+  }
+}

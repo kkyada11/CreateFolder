@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Create Folder</title>
+    <link rel="stylesheet" href="css/app.css" />
+    <link rel="stylesheet" href="css/font-awesome.min.css" />
+  </head>
+  <body>
+    <div id="content">
+      <div class="tit">
+        <h1>폴더 생성하기</h1>
+      </div>
+      <table>
+        <colgroup>
+          <col style="width:25% ;" />
+          <col style="width:75% ;" />
+        </colgroup>
+        <tbody>
+          <tr>
+            <th scope="row">생성할 폴더 경로</th>
+            <td>
+              <div class="folder-path">
+                <span id="printPath"></span>
+                <button type="button" class="folder"><i class="fa fa-folder-open"></i> ...</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <th scope="row">폴더 리스트</th>
+            <td>
+              <div class="excel-file">
+                <span id="printExcel"></span>
+                <button type="button" class="excel"><i class="fa fa-folder-open"></i> ...</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="2">
+              <div class="create-box">
+                <button type="button" class="create"><i class="fa fa-play-circle"></i> 폴더 생성</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="logDisplay">
+        <textarea id="logBox" cols="30" rows="10" readonly></textarea>
+      </div>      
+    </div>
+    <script>
+      // You can also require other files to run in this process
+      require('./renderer.js');
+      require('./render_process/index');
+    </script>
+  </body>
+</html>
