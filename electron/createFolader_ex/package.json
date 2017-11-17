@@ -10,8 +10,9 @@
     "package-linux": "electron-packager . electron-tutorial-app --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/icons/png/1024x1024.png --prune=true --out=release-builds",
     "create-installer-mac": "electron-installer-dmg ./release-builds/CreateFolder-darwin-x64/CreateFolder.app CreateFolder --out=release-builds --overwrite --icon=resources/installer/Icon.icns"
   },
+  "repository": "https://github.com/kkyada11/CreateFolder",
   "author": "kkyada",
-  "license": "1.0",
+  "license": "CC0-1.0",
   "devDependencies": {
     "electron": "~1.7.8",
     "electron-builder": "^19.45.4",
