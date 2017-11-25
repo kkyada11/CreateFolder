@@ -5,6 +5,8 @@
 const fs = require('fs');
 const ipc = require('electron').ipcMain;
 const dialog = require('electron').dialog;
+const {shell} = require('electron');
+const ExecLimiter = require("exec-limiter");
 
 let folderPath, filePath;
 
@@ -29,6 +31,16 @@ ipc.on('Ob-excel-file', (e) =>{
         }
     })
 });
+
+ipc.on('Ob-folder-open', (e, selectPath) =>{
+    // shell.showItemInFolder(selectPath);
+    let path = 'open '+selectPath;
+    let el = new ExecLimiter(1);
+    el.add(path, (e, idx) => {
+
+    })
+});
+
 
 // ipc.on('Ob-run', (e, Config) =>{
 //     jsonFileExtraction((fileName)=> {

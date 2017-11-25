@@ -39,6 +39,11 @@ button {
   color: #bababb;
 }
 
+button:disabled {
+  opacity: 0.5;
+  cursor: auto;
+}
+
 select {
   -webkit-appearance:none;
   -moz-border-radius: 3px;
@@ -203,13 +208,21 @@ input[type=text]{
 
 .logDisplay textarea {
   width:100%;
-  height:58.5vh;
+  height:51vh;
   resize: none;
 }
 
-.create-box {
+.button-box {
   overflow: hidden;
   text-align: center;
   padding-top: 10px;
   padding-bottom: 5px;
+}
+
+.button-box button {
+  margin-left:10px;
+}
+
+.button-box button:first-child {
+  margin-left:0;
 }
