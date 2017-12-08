@@ -34,7 +34,8 @@ let Config = {},
 
 String.prototype.ignore = function (){
     // 특수 문자 제거.
-    let regExp = /[\{\}\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+    // let regExp = /[\{\}\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
+    let regExp = /[\{\}\/?:|\)*~`!^\<>@\#$%&\\\=\(\'\"]/gi;
     let tmp = this.replace(regExp, '');
     return tmp.replace(/[\s]/g, '\\ ');
 };
@@ -99,7 +100,7 @@ let excel = {
         let count = 0;
         for(let item in storage.data) {
             if (!storage.data[item][v]) continue;
-            console.log(storage.data[item][colCode]);
+            // console.log(storage.data[item][colCode]);
             count++;
         }
         return count;
@@ -182,7 +183,9 @@ $createButton.on('click', (e) =>{
         let targetPath = PATH.join(selectPath[0],storage.data[item][colCode]);
         let path = 'mkdir '+targetPath;
         let el = new ExecLimiter(1);
+        console.log(path);
         el.add(path, (e, idx) => {
+            console.log(e);
             log.msg(++count, targetPath);
         })
     }
