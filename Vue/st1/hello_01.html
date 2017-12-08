@@ -1,0 +1,24 @@
+<html>
+<head>
+    <title>Hello Vue</title>
+</head>
+<body>
+    <div id="app">
+        <textarea v-model="message"></textarea>
+        <pre>
+            {{ $data }}
+        </pre>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    var data = {
+        message : 'Our king is dead!'
+    };
+
+    new Vue({
+        el: '#app',
+        data : data
+    });
+</script>
+</html>

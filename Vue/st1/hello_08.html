@@ -1,0 +1,78 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>User Stories</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+<div class="container">
+    <h1>Let's hear some stories!</h1>
+    <div class="box">
+        <h3>Alex's stories</h3>
+        <ul class="list-group">
+            <li v-for="story in storiesBy('Alex')" class="list-group-item">
+                {{story.writer}} said "{{story.plot}}"
+            </li>
+        </ul>
+        <h3>John's stories</h3>
+        <ul class="list-group">
+            <li v-for="story in storiesBy('John')" class="list-group-item">
+                {{story.writer}} said "{{story.plot}}"
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+            <pre>
+{{ $data }}
+            </pre>
+    </div>
+</div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '.container',
+        data : {
+            stories : [
+                {
+                    plot: "I crashed my car today!",
+                    writer: "Alex"
+                },
+                {
+                    plot: "Yesterday, someone stole my bag!",
+                    writer: "John"
+                },
+                {
+                    plot: "Someone ate my chocolate...",
+                    writer: "John"
+                },
+                {
+                    plot: "I ate someone's chocolate!",
+                    writer: "Alex"
+                }
+            ]
+        },
+        methods : {
+            storiesBy: function(writer){
+                return this.stories.filter(function(story){
+                   return story.writer === writer;
+                });
+            }
+        }
+    });
+</script>
+</html>

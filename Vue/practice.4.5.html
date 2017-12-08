@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>연습문제 4.5</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+<div class="container">
+    <h1>This is me!</h1>
+    <div class="box">
+        <ul class="list-group">
+            <li v-for="(v, k, i) in isMe" class="list-group-item">
+                {{ i }}: {{k}} = {{v}}
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+            <pre>
+{{ $data }}
+            </pre>
+    </div>
+</div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    var data = [
+        'I crashed my car today!',
+        'Yesterday, someone stole my bag!',
+        'Someone ate my chocolate'
+    ];
+    new Vue({
+        el: '.container',
+        data : {
+            isMe :
+                {
+                    'name':'Kostas',
+                    'height':'1.73m',
+                    'weigh':'65Kg',
+                    'eyeColor':'brown',
+                    'favoriteFood':'Ntolmas'
+                }
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Upvote</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div class="container">
+        <button @click="upvote">
+            Upvote! {{ upvotes }}
+        </button>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    var data = [
+        'I crashed my car today!',
+        'Yesterday, someone stole my bag!',
+        'Someone ate my chocolate'
+    ];
+    new Vue({
+        el: '.container',
+        data : {
+            upvotes : 0
+        },
+        methods : {
+            upvote : function(){
+                this.upvotes++;
+            }
+        }
+    });
+</script>
+</html>

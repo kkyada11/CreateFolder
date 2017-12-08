@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div class="container">
+        <story></story>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script type="text/template" id="story-template1">
+    <h1>My horse is amazing!</h1>
+</script>
+<template id="story-template2">
+    <h1>My horse is amazing!</h1>
+</template>
+<script>
+    Vue.component('story', {
+        template : '#story-template2'
+    });
+    new Vue({
+        el : '.container'
+    });
+</script>
+</html>

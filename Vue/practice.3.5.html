@@ -1,0 +1,47 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>연습문제 3.5</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div id="app">
+        <section>
+            <h1>Hello <span v-if="yourSex=='male'">Mister</span><span v-else-if="yourSex=='female'">Miss</span> <span>{{yourName}}</span></h1>
+        </section>
+        <section>
+            <p>Enter Your gender</p>
+            <input type="text" v-model="yourSex" />
+        </section>
+        <section>
+            <p>Enter Your name</p>
+            <input type="text" v-model="yourName" />
+        </section>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    var data = {
+        yourName : 'Anderson',
+        yourSex : 'male'
+    };
+
+    new Vue({
+        el: '#app',
+        data : data
+    });
+</script>
+</html>

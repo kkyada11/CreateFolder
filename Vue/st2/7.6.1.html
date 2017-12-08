@@ -1,0 +1,75 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1>Let's hear some stories!</h1>
+        <ul class="list-group">
+            <story v-for="story in stories" :story="story" class="list-group-item"></story>
+        </ul>
+        <pre>{{$data}}</pre>
+    </div>
+</body>
+<template id="story-template">
+    <li class="list-group-item">
+        {{ story.writer }} said "{{ story.plot }}"
+    </li>
+</template>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    Vue.component('story', {
+        props: ['story'],
+        template : '#story-template'
+    });
+    new Vue({
+        el : '.container',
+        data : {
+            stories : [
+                {
+                    plot: "I crashed my car today!",
+                    writer: "Alex"
+                },
+                {
+                    plot: "Yesterday, someone stole my bag!",
+                    writer: "John"
+                },
+                {
+                    plot: "Someone ate my chocolate...",
+                    writer: "John"
+                },
+                {
+                    plot: "I ate someone's chocolate!",
+                    writer: "Alex"
+                }
+            ],
+        },
+        methods : {
+            storiesBy: function(writer){
+                return this.stories.filter(function(story){
+                    return story.writer === writer;
+                });
+            },
+            search: function(){
+                return this.stories;
+            }
+        }
+    });
+</script>
+</html>

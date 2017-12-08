@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div class="container">
+        <story plot="안녕하세요."></story>
+        <story plot="김동민입니다."></story>
+        <story plot="바보라고도 불리 웁니다."></story>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<template id="story-template">
+    <h1>{{plot}}</h1>
+</template>
+<script>
+    Vue.component('story', {
+        props: ['plot'],
+        template : '#story-template'
+    });
+    new Vue({
+        el : '.container'
+    });
+</script>
+</html>

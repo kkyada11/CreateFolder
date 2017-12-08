@@ -1,0 +1,41 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div class="container">
+        <story v-bind:story="{plot: '안녕하세요.', writer: '김동민'}"></story>
+        <story v-bind:story="{plot: '잘 부탁 드려요.', writer: '전은미'}"></story>
+        <story v-bind:story="{plot: '요즘 날씨가 춥네요.', writer: '김춘자'}"></story>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<template id="story-template">
+    <h1>{{story.writer}} : {{story.plot}}</h1>
+</template>
+<script>
+    Vue.component('story', {
+        props: ['story'],
+        template : '#story-template'
+    });
+    new Vue({
+        el : '.container'
+    });
+</script>
+</html>

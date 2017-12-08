@@ -1,0 +1,69 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Hello Vue</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+    <div class="container">
+        <h1>Enter 2 numbers to calculate their sum.</h1>
+        <form action="" class="form-inline">
+            <input v-model.number="a" type="text" class="form-control" />
+            <select v-model="operator" class="form-control">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+            <input v-model.number="b" type="text" class="form-control" />
+        </form>
+        <h2>Result: {{a}} {{operator}} {{b}} = {{c}}</h2>
+        <pre>
+{{$data}}
+        </pre>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '.container',
+        data : {
+            a : 1,
+            b : 2,
+            operator : '+'
+        },
+        computed : {
+            c : function(){
+                switch (this.operator) {
+                    case "+" :
+                        return this.a + this.b;
+                        break;
+                    case "-" :
+                        return this.a - this.b;
+                        break;
+                    case "*" :
+                        return this.a * this.b;
+                        break;
+                    case "/" :
+                        return this.a / this.b;
+                        break;
+                }
+            }
+        }
+    });
+</script>
+</html>

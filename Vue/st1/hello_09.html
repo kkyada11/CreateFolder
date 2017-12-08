@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+<div class="container">
+    <h1>Let's hear some stories! ({{famous(25).length}})</h1>
+    <div class="box">
+        <ul class="list-group">
+            <li v-for="story in famous(25)" class="list-group-item">
+                {{story.writer}} said "{{story.plot}}"
+                and upvoted {{story.upvotes}} times.
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+            <pre>
+{{ $data }}
+            </pre>
+    </div>
+</div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    new Vue({
+        el: '.container',
+        data : {
+            stories : [
+                {
+                    plot: "I crashed my car today!",
+                    writer: "Alex",
+                    upvotes: 28
+                },
+                {
+                    plot: "Yesterday, someone stole my bag!",
+                    writer: "John",
+                    upvotes: 8
+                },
+                {
+                    plot: "Someone ate my chocolate...",
+                    writer: "John",
+                    upvotes: 51
+                },
+                {
+                    plot: "I ate someone's chocolate!",
+                    writer: "Alex",
+                    upvotes: 74
+                }
+            ]
+        },
+        methods : {
+            famous: function(num){
+                return this.stories.filter(function(item){
+                    return item.upvotes > num;
+                });
+            },
+            storiesBy: function(writer){
+                return this.stories.filter(function(story){
+                   return story.writer === writer;
+                });
+            }
+        }
+    });
+</script>
+</html>

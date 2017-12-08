@@ -1,0 +1,86 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>연습문제 6.5</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+<div class="container">
+    <h1>People of Gaul</h1>
+    <div class="box">
+        <ul class="list-group">
+            <li v-for="v in list" class="list-group-item">
+                {{v.name}} : {{v.age}}
+            </li>
+        </ul>
+    </div>
+    <h1>"Old" People of Gaul</h1>
+    <div class="box">
+        <ul class="list-group">
+            <li v-for="(v, i) in ageWhenList(56)" class="list-group-item">
+                {{v.name}} : {{v.age}}
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+            <pre>
+{{ $data }}
+            </pre>
+    </div>
+</div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+
+<script>
+
+    new Vue({
+            el: '.container',
+            data: {
+                list: [
+                    {'name': 'Julius Caesar', 'age': 56},
+                    {'name': 'Asterix', 'age': 32},
+                    {'name': 'Obelix', 'age': 31},
+                    {'name': 'Majestix', 'age': 62}
+                ]
+            },
+            methods: {
+                ageOrderList: function(){
+                    this.list.sort(function(a, b) { // 오름차순
+                        return b['age'] - a['age'];
+                    });
+//                    return this.list.filter(function(item, index, listData){
+//                        return index === 0 || item.age !== listData[index-1].age;
+//                    });
+                },
+                ageWhenList: function(num){
+                    return this.list.filter(function(item){
+                        return item.age >= num;
+                    });
+                }
+            },
+            computed: {
+                ageOrderAsc:function(key){
+                    console.log(key);
+                    this.list.sort(function(a, b) { // 오름차순
+                        return b[key] - a[key];
+                    });
+                }
+            }
+        });
+
+</script>
+</html>

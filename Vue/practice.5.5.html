@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=EDGE,chrome=IE7">
+    <title>연습문제 5.5</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css" />
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        section {
+            overflow: hidden;
+            margin-top:15px;
+            text-align: center;
+        }
+        pre {
+            text-align: left;
+        }
+    </style>
+<body>
+<div class="container">
+    <h1>People of Vue</h1>
+    <div class="box">
+        <ul class="list-group">
+            <li v-for="(v, i) in list" class="list-group-item">
+                {{v.name}} : {{v.VoteCount}} <button @click="voteClick(i)">Vote</button>
+            </li>
+        </ul>
+    </div>
+    <div class="box">
+            <pre>
+{{ $data }}
+            </pre>
+    </div>
+</div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+
+    new Vue({
+            el: '.container',
+            data: {
+                list: [
+                    {'name': 'Mr. Black', 'VoteCount': 0},
+                    {'name': 'Mr. Pink', 'VoteCount': 0},
+                    {'name': 'Mr. White', 'VoteCount': 0},
+                    {'name': 'Mr. Brown', 'VoteCount': 0}
+                ]
+            },
+            methods: {
+                voteClick: function (i) {
+                    this.list[i].VoteCount++;
+                    this.list.sort(function(a, b) { // 오름차순
+                        return b['VoteCount'] - a['VoteCount'];
+                    });
+                }
+            }
+        });
+
+</script>
+</html>

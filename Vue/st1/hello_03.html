@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Hello Vue - v-if</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="!message">You must send a message for help!</h1>
+        <p>
+            <textarea v-model="message"></textarea>
+        </p>
+        <p>
+            <button v-if="message">
+                Send word to allies for help!
+            </button>
+        </p>
+        <p>
+            <pre>
+{{ $data }}
+            </pre>
+        </p>
+    </div>
+</body>
+<script src="https://vuejs.org/js/vue.min.js"></script>
+<script>
+    var data = {
+        message : 'Our king is dead!'
+    };
+
+    new Vue({
+        el: '#app',
+        data : data
+    });
+</script>
+</html>
