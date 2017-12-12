@@ -62,13 +62,13 @@ function initialize(){
 switch(process.argv[1]){
     case '--squirrel-install':
         autoUpdater.createShortcut(function(){
-            app.quit()
+            app.quit();
         });
         break;
 
     case '--squirrel-uninstall':
         autoUpdater.removeShortcut(function(){
-            app.quit()
+            app.quit();
         });
         break;
 

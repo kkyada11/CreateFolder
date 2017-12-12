@@ -183,10 +183,13 @@ $createButton.on('click', (e) =>{
         let targetPath = PATH.join(selectPath[0],storage.data[item][colCode]);
         let path = 'mkdir '+targetPath;
         let el = new ExecLimiter(1);
-        console.log(path);
         el.add(path, (e, idx) => {
-            console.log(e);
-            log.msg(++count, targetPath);
+            if(e === null){
+                log.msg(++count, targetPath);
+            }else {
+                console.dir(e);
+                return false;
+            }
         })
     }
 });
