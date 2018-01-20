@@ -51,10 +51,14 @@ let excel = {
     },
 
     load : (u) => {
-        this.workbook = XLSX.readFile(u);
-        let sheet_name_list = this.workbook.SheetNames;
+        try {
+            this.workbook = XLSX.readFile(u);
+            let sheet_name_list = this.workbook.SheetNames;
 
-        settingOption.sheetSetting(sheet_name_list);
+            settingOption.sheetSetting(sheet_name_list);
+        }catch (e){
+            alert('문서 형식이 잘못 되었습니다');
+        }
     },
 
     sheetLoad : (sheetName) => {

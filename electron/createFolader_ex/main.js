@@ -21,8 +21,8 @@ function singleInstance(){
 
 function createWindow(){
     mainWindow = new BrowserWindow({
-        // width: 440+400,
-        width: 440,
+        width: 440+400,
+        // width: 440,
         height: 650,
         resizable: false,
         // frame: false,
@@ -34,7 +34,7 @@ function createWindow(){
         protocol: 'file:'
     }));
 
-    // mainWindow.webContents.openDevTools();
+    mainWindow.webContents.openDevTools();
 
     mainWindow.on('closed', function(){
         mainWindow = null;
